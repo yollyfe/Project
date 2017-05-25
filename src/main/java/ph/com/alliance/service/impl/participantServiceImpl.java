@@ -16,23 +16,16 @@ public class participantServiceImpl implements participantService{
 
 	@Autowired
 	private JpaTransactionManager transactionManager;
-	
+
 	@Override
-	public void add(Participant part) {
+	public boolean checkLogIn(String username, String password) {
 		EntityManager em= transactionManager.getEntityManagerFactory().createEntityManager();
-		try {
-			em.getTransaction().begin();
-			participantDao.addUser(em, part);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			if(em.getTransaction().isActive())
-				em.getTransaction().rollback();
-		} finally {
-			if (em.isOpen())
-				em.close();
-		}
-		
+		return participantDao.checkLogIn(em, username, password);
 	}
 
-}
+	
+	}
+	
+	
+
+

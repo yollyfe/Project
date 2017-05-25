@@ -68,6 +68,7 @@
 
 .user:hover, .user:focus {
 	background-color: #008CBA;
+	
 }
 
 .allUsers {
@@ -109,18 +110,17 @@
 			</a>
 		</div>
 	</div>-->
-	<div class="allUsers">
+	<div class="allUsers" id="mymodal">
 		<div class="userRow">
-			<div class="user" id="first">
+			<div class="user" id="first" onclick="document.getElementById('myImg').style.display='block'">
 				<center>
 					<img src="<c:url value='../lib/avatar.png'/>" alt="Avatar"
 						class="image"><br>
 					<hr>
-
 					Participant
 				</center>
 			</div>
-			<div class="user" id="second">
+			<div class="user" id="second" onclick="document.getElementById('myImg').style.display='block'">
 				<center>
 					<img src="<c:url value='../lib/avatar.png'/>" alt="Avatar"
 						class="image"><br> Supervisor
@@ -129,7 +129,7 @@
 			</div>
 		</div>
 		<div class="userRow">
-			<div class="user" id="third">
+			<div class="user" id="third" onclick="document.getElementById('myImg').style.display='block'">
 				<center>
 					<img src="<c:url value='../lib/avatar.png'/>" alt="Avatar"
 						class="image"><br> Administrator
@@ -142,6 +142,14 @@
 					<hr>
 					Facilitator
 				</center>
+				<div class="overlay">
+				<a href="Directory/signUp.jsp">
+					<p class="des">Log In</p>
+				</a>
+			    <a href="Directory/sgnup.jsp">
+					<p class="des">Sign Up</p>
+				</a>
+			</div>
 
 			</div>
 		</div>
@@ -153,7 +161,8 @@
 			<div class="overlay">
 				<a href="Directory/signUp.jsp">
 					<p class="des">Log In</p>
-				</a> <a href="Directory/sgnup.jsp">
+				</a>
+			    <a href="Directory/sgnup.jsp">
 					<p class="des">Sign Up</p>
 				</a>
 				</form>
@@ -168,4 +177,53 @@
 <script src="lib/js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
 <script src="lib/js/jquery.blockUI.js"></script>
+
+
+	<div>
+  <div id="London" class="w3-container city">
+   <h1>London</h1>
+   <p>London is the most populous city in the United Kingdom, with a metropolitan area of over 9 million inhabitants.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
+  <div id="Paris" class="w3-container city">
+   <h1>Paris</h1>
+   <p>Paris is the capital of France.</p>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+
+  <div id="Tokyo" class="w3-container city">
+   <h1>Tokyo</h1>
+   <p>Tokyo is the capital of Japan.</p><br>
+  </div>
+
+  <div class="w3-container w3-light-grey w3-padding">
+   <button class="w3-btn w3-right w3-white w3-border" 
+   onclick="document.getElementById('id01').style.display='none'">Close</button>
+  </div>
+ </div>
+
+
+<script>
+document.getElementsByClassName("tablink")[0].click();
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].classList.remove("cc");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.classList.add("w3-light-grey");
+}
+</script>
+
+
+
+
+
 </html>

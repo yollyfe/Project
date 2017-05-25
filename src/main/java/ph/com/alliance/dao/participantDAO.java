@@ -6,6 +6,6 @@ import ph.com.alliance.entity.Participant;
 
 public interface participantDAO {
 
-	public void addUser(EntityManager em, Participant part);
+	public boolean checkLogIn(EntityManager em, String username, String password);
 	
 }

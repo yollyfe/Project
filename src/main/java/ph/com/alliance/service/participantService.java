@@ -1,8 +1,9 @@
 package ph.com.alliance.service;
 
-import ph.com.alliance.entity.Participant;
+import javax.persistence.EntityManager;
+
 
 public interface participantService {
 
-	public void add(Participant part);
+	public boolean checkLogIn(String username, String password);
 }

@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="${pageContext.request.contextPath}/modulename/login"
+			method="GET">
+<input type="text" placeholder="Username" name="username" required/><br/><br/>
+<input type="password" placeholder="Password" name="password" required/><br/><br/>
+<button type="submit" name="loginbtn">Log In</button>
+</form>
 </body>
 </html>

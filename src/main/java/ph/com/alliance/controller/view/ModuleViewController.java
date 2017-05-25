@@ -27,6 +27,7 @@ public class ModuleViewController {
 	
 	@Autowired
 	private PersonService personService;
+	@Autowired
 	private participantService partService;
 	/**
 	 * 
@@ -40,7 +41,6 @@ public class ModuleViewController {
     	System.out.println("@/modulename/profile MODULE VIEW CONTROLLER CALLED.");
         return "profile";
     }
-    
     /**
      * 
      * @param request
@@ -111,15 +111,18 @@ public class ModuleViewController {
 		return this.getSearchedList(map);
 	}
 	
-	@RequestMapping(value="/addUser", method= RequestMethod.GET)
-	public String add(Participant part, ModelMap map){
-		System.out.println("hi");
-		try{
-			partService.add(part);
-				return "Interface1";
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+	
+	@RequestMapping(value="/login", method= RequestMethod.GET)
+	public String logIn(HttpServletRequest request, ModelMap map){
+		System.out.println("Entered");
+		String uname=request.getParameter("username");
+		String pword=request.getParameter("password");
+		boolean exists=partService.checkLogIn(uname, pword);
+		if(!exists){
+		return "testLogin";
+		}
+		else
 		return "Interface1";
 	}
 	}
+	

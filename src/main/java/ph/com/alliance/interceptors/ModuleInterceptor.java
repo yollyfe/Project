@@ -15,6 +15,7 @@ public class ModuleInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 	    throws Exception {
+		System.out.println("Entered here");
 		return true;
 	}
 	
